@@ -2,6 +2,7 @@
   "expo": {
     "name": "dev-radar",
     "slug": "dev-radar",
+
     "platforms": [
       "ios",
       "android",
@@ -23,6 +24,12 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "android": {
+      "package": "com.imbitubadigital.devradar",
+      "config": {
+         "googleMaps": { "apiKey": "AIzaSyBlx5yIUoeZbIYJ_LDMp7RAV8v1YleXbbw" }
+      }
+   }
   }
 }

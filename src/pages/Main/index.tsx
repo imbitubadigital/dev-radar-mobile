@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import MapView, { Marker, Callout } from 'react-native-maps';
+import { MaterialIcons } from '@expo/vector-icons';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 
-import { Img, Content, Name, Bio, Techs } from './styles';
+import { Img, Content, Name, Bio, Techs, Form, Input, Btn, TxtBtn } from './styles';
 
 interface Coods {
     latitude: number;
@@ -42,6 +43,7 @@ const Main: React.FC = () => {
 
     if(currentRegion.latitude === 0) return null;
     return (
+        <>
         <MapView initialRegion={currentRegion} style={{ flex: 1}}>
             <Marker coordinate={{ latitude: -28.2375853, longitude: -48.6749087 }}>
                 <Img source={{ uri: 'https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg' }} />
@@ -54,6 +56,27 @@ const Main: React.FC = () => {
                 </Callout>
             </Marker>
         </MapView>
+        <Form>
+            <Input
+            placeholder="Busca devs por techs..."
+            placeholderTextColor="#999"
+            autoCapitalize="words"
+            autoCorrect={false}
+            style={{
+                shadowColor: '#000',
+                shadowOpacity: 0.4,
+                shadowOffset: {
+                    width: 4,
+                    height: 4,
+                },
+                elevation: 6,
+             }}
+            />
+            <Btn onPress={() => {}}>
+                <MaterialIcons name="my-location" size={20} color="#fff" />
+            </Btn>
+       </Form>
+    </>
     );
 }
 

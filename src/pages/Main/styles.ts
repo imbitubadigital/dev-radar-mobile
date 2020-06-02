@@ -18,9 +18,39 @@ export const Name = styled.Text`
 export const Bio = styled.Text`
    color: #666;
    font-size: 15px;
-   margin-top: 5px
+   margin-top: 5px;
 `;
+
 export const Techs = styled.Text`
-margin-top: 5px
+   margin-top: 5px;
 `;
+export const Form = styled.View`
+   position: absolute;
+   top: 20px;
+   left: 20px;
+   right: 20px;
+   z-index: 5;
+   flex-direction: row;
+`;
+
+export const Input = styled.TextInput`
+   flex: 1;
+   height: 50px;
+   background: #fff;
+   color: #333;
+   border-radius: 25px;
+   padding: 5px 20px;
+   font-size: 16px;
+`;
+export const Btn = styled.TouchableOpacity`
+   width: 50px;
+   height: 50px;
+   background: #ff9000;
+   justify-content: center;
+   align-items: center;
+   border-radius: 25px;
+   margin-left: 15px;
+`;
+
+
 

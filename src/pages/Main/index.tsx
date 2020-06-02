@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
-import MapView from 'react-native-maps';
+import MapView, { Marker, Callout } from 'react-native-maps';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 
+import { Img, Content, Name, Bio, Techs } from './styles';
 
 interface Coods {
     latitude: number;
@@ -42,7 +42,18 @@ const Main: React.FC = () => {
 
     if(currentRegion.latitude === 0) return null;
     return (
-        <MapView initialRegion={currentRegion} style={{ flex: 1}}/>
+        <MapView initialRegion={currentRegion} style={{ flex: 1}}>
+            <Marker coordinate={{ latitude: -28.2375853, longitude: -48.6749087 }}>
+                <Img source={{ uri: 'https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg' }} />
+                <Callout onPress={() => natigation.navigate('Profile', { github_username: 'Diego3g'})}>
+                    <Content>
+                        <Name>Antonio Fernandes</Name>
+                        <Bio>Aqui uma frase um pouco maior</Bio>
+                        <Techs>Php, Javascript, ReactJS</Techs>
+                    </Content>
+                </Callout>
+            </Marker>
+        </MapView>
     );
 }
 

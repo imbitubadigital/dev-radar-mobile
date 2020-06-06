@@ -5,6 +5,10 @@
 Implementação realizada por: **Antonio Joaquim Fernandes**
 - Contato: **imbitubadigital@gmail.com**
 
+## Vídeo da Aplicação
+ [CLIQUE AQUI E ASSISTA O VÍDEO DESMONSTRATIVO](https://www.youtube.com/watch?v=jgRliPP8cWU)
+
+
 ## Especificações:
 
 Projeto idealizado durante a Semana Oministck 10 da Rocketseat, tendo como objetivo o desenvolvimento de um **Aplicativo Mobile** integrado com mapa e pesquisa de Dev por tecnologias, conforme as regras de negócios implementadas no [Beckend](https://github.com/imbitubadigital/beckend-dev-radar) da aplicação .
@@ -25,7 +29,7 @@ Como desafio pessoal foi integrado:
 
 ### Projeto Web - Front-end React
 
-[Clique aqui](https://github.com/imbitubadigital/sistema-de-tarefas) para visualizar e baixo o projeto fron-end desenvolvido em **ReactJS**
+[Clique aqui](https://github.com/imbitubadigital/dev-radar-frontend-react) para visualizar e baixo o projeto fron-end desenvolvido em **ReactJS**
 
 
 

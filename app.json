@@ -28,7 +28,7 @@
     "android": {
       "package": "com.imbitubadigital.devradar",
       "config": {
-         "googleMaps": { "apiKey": "AIzaSyBlx5yIUoeZbIYJ_LDMp7RAV8v1YleXbbw" }
+         "googleMaps": { "apiKey": "Sua_chave_api_google" }
       }
    }
   }

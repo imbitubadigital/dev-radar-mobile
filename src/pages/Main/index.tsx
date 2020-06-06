@@ -8,6 +8,13 @@ import {
   getCurrentPositionAsync,
 } from 'expo-location';
 import api from '../../services/api';
+import {
+  connect,
+  disconnect,
+  subscribeToNewDevs,
+  subscribeToUpdateDev,
+  subscribeToDeleteDev,
+} from '../../services/socket';
 
 import {
   Img,
@@ -72,8 +79,30 @@ const Main: React.FC = () => {
     LoadInitialPosition();
   }, []);
 
+  useEffect(() => {
+    subscribeToNewDevs(dev => setData([...data, dev]));
+    subscribeToUpdateDev(dev => {
+      const check = data.filter(d => d._id === dev._id);
+      if (check.length < 1) {
+        setData([...data, dev]);
+      } else {
+        setData(data.map(d => (d._id === dev._id ? dev : d)));
+      }
+    });
+    subscribeToDeleteDev(id => {
+      setData(data.filter(d => d._id !== id));
+    });
+  }, [data]);
+
   const hanldleReagionChanged = useCallback((region: Coods) => {
     setCurrentRegion(region);
+  }, []);
+
+  const setupWebsocket = useCallback((coord: Coods, technologies: string) => {
+    disconnect();
+    const { latitude, longitude } = coord;
+
+    connect(latitude, longitude, technologies);
   }, []);
 
   const loadDevs = useCallback(async () => {
@@ -84,10 +113,11 @@ const Main: React.FC = () => {
         params: { latitude, longitude, techs },
       });
       setData(response.data);
+      setupWebsocket(currentRegion, techs);
       Keyboard.dismiss();
     }
     setLoading(false);
-  }, [currentRegion, techs]);
+  }, [currentRegion, techs, setupWebsocket]);
 
   if (currentRegion.latitude === 0) return null;
   return (
